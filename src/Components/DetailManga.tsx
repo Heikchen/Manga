@@ -2,9 +2,11 @@ import React from "react";
 import axios from "axios";
 import {useParams, Link} from "react-router-dom"
 import Spinner from "./Spinner";
+import { prototype } from "events";
+import Popup from "./Popup";
 
 
-function DetailManga(){
+function DetailManga(props:any){
 const [detailManga, setDetailManga]=React.useState<any>([]);
 const [isLoading, setLoading]=React.useState<boolean>(false);
 const [author, setAuthor]=React.useState<any>([]);
@@ -29,14 +31,22 @@ const fetchDetailManga=():void =>{
 
     }
 React.useEffect(()=>{fetchDetailManga();
-window.scrollTo(0, 0);},[urlParamId])
+window.scrollTo(0, 0);
+props.handleReady();
+},[urlParamId])
 
 
-return(<div>
+return(<div className="relative ">
+   {props.visible &&(<div className="absolute w-full h-screen flex justify-center">
+    <div >
+    <Popup handleReady={props.handleReady} addVolumeToManga={props.addVolumeToManga}
+    volume={detailManga.num_volumes} manga={detailManga} myMangas={props.myMangas}/></div></div>)} 
+  
     {isLoading ? (<Spinner />):(<div className="font-quicksand h-fit w-full text-primary-white-color grid grid-rows-auto grid-cols-2 sm:grid-cols-1 gap-6 mt-6 mb-6">
         <div className="w-full flex flex-col items-center">
+        
         <img className="w-90 rounded-2xl mb-6"src={detailManga.main_picture?.large} />
-         <button className="bg-primary-red-color w-48 h-10 rounded-3xl mb-4 uppercase active:scale-95">Add to Mangashelf</button>
+         <button  onClick={()=>props.addToMangashelf(detailManga)}className="bg-primary-red-color w-48 h-10 rounded-3xl mb-4 uppercase active:scale-95">Add to Mangashelf</button>
         <div className="w-full text-lg leading-9">
         <h1 className="text-2xl border-b-2 text-center">Information</h1>
         <h2 className="tracking-wider mt-2 ml-4 capitalize">Type: {detailManga.media_type}</h2>
