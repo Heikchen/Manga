@@ -5,20 +5,20 @@ function SignUp(){
         <div className="flex flex-col gap-6 w-fit items-end">
         <label className="text-primary-white-color">
             First Name:  
-            <input type="text" name="firstname" placeholder="First Name" className="ml-4 h-10 pl-2 w-60"/>
+            <input type="text" name="firstname" placeholder="First Name" className="ml-4 h-10 pl-2 w-72 focus:outline-primary-red-color"/>
         </label>
          <label className="text-primary-white-color">
             Last Name:  
-            <input type="text" name="lastname" placeholder="Last Name" className="ml-4 h-10 pl-2 w-60"/>
+            <input type="text" name="lastname" placeholder="Last Name" className="ml-4 h-10 pl-2 w-72 focus:outline-primary-red-color"/>
         </label>
         
          <label className="text-primary-white-color">
             E-Mail:  
-            <input type="email" name="email" placeholder="E-Mail" className="ml-4 h-10 pl-2 w-60"/>
+            <input type="email" name="email" placeholder="E-Mail" className="ml-4 h-10 pl-2 w-72 focus:outline-primary-red-color"/>
         </label>
         <label className="text-primary-white-color">
             Password:  
-            <input type="password" name="password" placeholder="Password" className="ml-4 h-10 pl-2 w-60"/>
+            <input type="password" name="password" placeholder="Password" className="ml-4 h-10 pl-2 w-72 focus:outline-primary-red-color"/>
         </label>
         <button className="self-start bg-primary-red-color w-20 h-9 rounded-2xl active:scale-95 text-primary-white-color">Sign Up</button>
     </div>
