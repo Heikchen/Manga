@@ -9,8 +9,9 @@ import DetailManga from "./Components/DetailManga";
 import DetailAnime from "./Components/DetailAnime";
 import MangaShelf from "./Components/MangaShelf";
 import AnimeShelf from "./Components/AnimeShelf";
-import Popup from "./Components/Popup";
 import SearchPage from "./Components/SearchPage";
+import Login from "./Components/Login";
+import SignUp from "./Components/SignUp";
 
 
 
@@ -88,6 +89,8 @@ const removeManga=(mangaToRemove:any):void=>{
       <Route path="/animeshelf" element={<AnimeShelf myAnimes={myAnimes} removeAnime={removeAnime}/>}/>
       <Route path="/manga/:id" element={<DetailManga addToMangashelf={addToMangashelf} visible={visible} addVolumeToManga={addVolumeToManga} handleReady={handleReady} myMangas={myMangas}/>}/>
       <Route path="/search" element={<SearchPage/>}/>
+      <Route path="/login" element={<Login/>}/>
+      <Route path="/sign-up" element={<SignUp/>}/>
       <Route path="/anime/:id" element={<DetailAnime addToAnime={addToAnime} myAnimes={myAnimes} />}/>
        </Routes>
       <Footer />
